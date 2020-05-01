@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link rel="stylesheet" th:href="@{DesignPancake.css}">
+<title>Design you Pancake</title>
+
+</head>
+<body>
+	<form>
+		<div class="container">
+			<div id="ingredContainer" class="row">
+
+				<div id="ingred" class="col s4">
+					<div class="card medium">
+						<div  id="card-image" class="card-image" >
+							<img th:src='@{/bar.png}'   />
+						</div>
+						<label th:each="ingredient : ${chocolate}" class="content">
+							<input name="ingredient" type="checkbox"
+								th:value="${ingredient.id}"   /> <span
+								th:text="${ingredient.name}">Ingredient </span>
+						</label>
+					</div>
+				</div>
+
+
+				<div id="ingred" class="col s4">
+					<div class="card medium">
+						<div class="card-image">
+							<img th:src='@{/fruit.png}' />
+						</div>
+						<label th:each="ingredient : ${fruits}" class="content">
+							<input name="ingredient" type="checkbox"
+								th:value="${ingredient.id}" /> <span
+								th:text="${ingredient.name}">Ingredient </span>
+						</label>
+					</div>
+				</div>
+
+
+				<div id="ingred" class="col s4">
+					<div class="card medium">
+						<div class="card-image">
+							<img th:src='@{/food.png}' />
+						</div>
+						<label th:each="ingredient : ${flavor}" class="content">
+							<input name="ingredient" type="checkbox"
+								th:value="${ingredient.id}" /> <span
+								th:text="${ingredient.name}">Ingredient </span>
+						</label>
+					</div>
+				</div>
+
+
+
+			</div>
+		</div>
+	</form>
+</body>
+</html>
