@@ -10,19 +10,32 @@
 
 </head>
 <body>
-	<form>
+	<form method="POST" th:object="${design}">
 		<div class="container">
+			<div id="topDiv" class="row">
+				<div class="input-field col s10">
+					<textarea id="textarea1" class="materialize-textarea"
+						placeholder="name your mixture" th:field="*{name}"></textarea>
+					<span th:if="${#fields.hasErrors('name')}" 
+					 th:errors="*{name}"> </span>
+						
+				</div>
+				<button class="btn waves-effect waves-light col s2 " type="submit"
+					name="action">Submit</button>
+
+			</div>
+
 			<div id="ingredContainer" class="row">
 
 				<div id="ingred" class="col s4">
 					<div class="card medium">
-						<div  id="card-image" class="card-image" >
-							<img th:src='@{/bar.png}'   />
+						<div id="card-image" class="card-image">
+							<img th:src='@{/bar.png}' />
 						</div>
 						<label th:each="ingredient : ${chocolate}" class="content">
 							<input name="ingredient" type="checkbox"
-								th:value="${ingredient.id}"   /> <span
-								th:text="${ingredient.name}">Ingredient </span>
+							th:value="${ingredient.id}" /> <span
+							th:text="${ingredient.name}">Ingredient </span>
 						</label>
 					</div>
 				</div>
@@ -33,10 +46,9 @@
 						<div class="card-image">
 							<img th:src='@{/fruit.png}' />
 						</div>
-						<label th:each="ingredient : ${fruits}" class="content">
-							<input name="ingredient" type="checkbox"
-								th:value="${ingredient.id}" /> <span
-								th:text="${ingredient.name}">Ingredient </span>
+						<label th:each="ingredient : ${fruits}" class="content"> <input
+							name="ingredient" type="checkbox" th:value="${ingredient.id}" />
+							<span th:text="${ingredient.name}">Ingredient </span>
 						</label>
 					</div>
 				</div>
@@ -47,10 +59,9 @@
 						<div class="card-image">
 							<img th:src='@{/food.png}' />
 						</div>
-						<label th:each="ingredient : ${flavor}" class="content">
-							<input name="ingredient" type="checkbox"
-								th:value="${ingredient.id}" /> <span
-								th:text="${ingredient.name}">Ingredient </span>
+						<label th:each="ingredient : ${flavor}" class="content"> <input
+							name="ingredient" type="checkbox" th:value="${ingredient.id}" />
+							<span th:text="${ingredient.name}">Ingredient </span>
 						</label>
 					</div>
 				</div>

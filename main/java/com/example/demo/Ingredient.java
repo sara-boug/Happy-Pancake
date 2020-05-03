@@ -20,7 +20,6 @@ public class Ingredient {
 	}
 	
 	public static  List<Ingredient>  filterByType(List<Ingredient> pancakes , Type type) {
-		System.out.print("yess");
 		ArrayList<Ingredient> typePan = new ArrayList<Ingredient>(); 
 		for(int i=0; i< pancakes.size() ; i++) { 
 			if(pancakes.get(i).type ==type) { 

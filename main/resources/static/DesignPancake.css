@@ -7,10 +7,11 @@ rgba(255.0,255.0,255.0,1.0) 40.0%,
 #f37277  40.0%,
  #f37277  100.0%);
     background-repeat: no-repeat;
+
   
  }
 #ingredContainer {
-	margin-top:10.0%;
+	/*margin-top:10.0%;*/
 
  }
 
@@ -49,3 +50,15 @@ rgba(255.0,255.0,255.0,1.0) 40.0%,
 #ingredContainer #ingred  .card .content input { 
 	background-color:pink;
 }
+
+div#topDiv{ 
+ 	display:flex;
+  	justify-content:space-between; 
+ 	align-items:center;
+ 	    color:white;
+   }
+ div#topDiv textarea{ 
+ 	color:white;
+ }
+ 
+ 

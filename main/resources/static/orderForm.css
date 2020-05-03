@@ -1,0 +1,38 @@
+ body{   /*#f37277 60%*/
+ 
+background: -webkit-linear-gradient(90.0deg, 
+rgba(255.0,255.0,255.0,1.0) 0.0%,
+ rgba(255.0,255.0,255.0,1.0) 40.0%,
+  #f37277  40.0%,
+ #f37277  100.0%);
+    background-repeat: no-repeat;
+    background-size:cover;
+  color:white;
+  padding-top:10px;
+  }
+form { 
+	display:flex; 
+	flex-direction:column; 
+    background-color:white;
+    text-align:center;
+    width:60%;
+    height:600px;
+     position:absolute; 
+    left:50.0%; 
+    transform:translateX(-50.0%) ; 
+  
+    
+      }
+ 
+ form #textarea1 , form button { 
+width: 80%;
+    height: 8%;
+    align-self: center;
+    margin-top: 13px;
+     }
+    
+  .btn {
+      height: 10%;
+
+    	
+    }
