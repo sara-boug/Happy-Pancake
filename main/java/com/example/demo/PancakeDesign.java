@@ -1,10 +1,11 @@
 package com.example.demo;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -14,10 +15,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.Ingredient.Type;
+import com.example.demo.repository.JdbcIngredient;
 
 @Controller
 @RequestMapping("/design")
 public class PancakeDesign {
+	
+	private final  JdbcIngredient  jdbcIngredient  ; 
+	@Autowired
+	public PancakeDesign(JdbcIngredient  jdbcIngredient) { 
+		this.jdbcIngredient=jdbcIngredient;
+	}
 	@GetMapping
 	public String showDesignForm(Model model) {
 		displayIng(model);
@@ -38,10 +46,8 @@ public class PancakeDesign {
 	}
 
 	public Model displayIng(Model model) {
-		List<Ingredient> ingredients = Arrays.asList(new Ingredient(1, "dark chocolate", Type.CHOCOLATE),
-				new Ingredient(2, "white chocolte", Type.CHOCOLATE), new Ingredient(3, "vanilla", Type.FLAVOR),
-				new Ingredient(4, "coffee", Type.FLAVOR), new Ingredient(5, "Bananas", Type.FRUITS),
-				new Ingredient(6, "strawberries", Type.FRUITS));
+		List<Ingredient> ingredients = new ArrayList<Ingredient>(); 
+				jdbcIngredient.findAll().forEach(i -> ingredients.add(i));
 
 		Type[] types = Ingredient.Type.values();
 		for (Type t : types) {

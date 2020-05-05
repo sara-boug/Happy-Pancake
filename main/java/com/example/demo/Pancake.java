@@ -1,11 +1,14 @@
 package com.example.demo;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class Pancake {
+	private  long id; 
+	private Date createdAt; 
 	@NotNull
 	@Size(min=5 , message="insert longeer name please")
 	private String name; 
@@ -13,6 +16,21 @@ public class Pancake {
 	@Size(min=1, message="at least one ingredient")*/
 	private ArrayList<String> ingredient; 
 	
+	public long getid() { 
+		return this.id; 
+	}	
+	public void setid(long id ) { 
+		this.id= id; 
+	}
+	
+	public Date getcreatedAt() { 
+		return this.createdAt; 
+	}	
+	public void setcreateAt(Date createdAt ) { 
+		this.createdAt= createdAt; 
+	}
+	
+
 	
 	public String getname() { 
 		return this.name; 
