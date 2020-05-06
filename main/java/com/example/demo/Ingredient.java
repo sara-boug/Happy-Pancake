@@ -30,5 +30,6 @@ public class Ingredient {
 		return   typePan; 
 		
 	}
+ 
 
 }

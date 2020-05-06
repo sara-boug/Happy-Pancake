@@ -1,6 +1,6 @@
 body { /*#f37277 60%*/
 	background: -webkit-linear-gradient(90.0deg, rgba(255.0, 255.0, 255.0, 1.0)
-		0.0%, rgba(255.0, 255.0, 255.0, 1.0) 40.0%, #f37277 40.0%, #f37277
+		0.0%, rgba(255.0, 255.0, 255.0, 1.0) 40.0%, #2b2b2b 40.0%, black
 		100.0%);
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -13,20 +13,30 @@ form {
 	flex-direction: column;
 	background-color: white;
 	text-align: center;
-	width: 60%;
+	width: 50%;
 	height: 600px;
 	position: absolute;
+	justify-content:space-around;
 	left: 50.0%;
 	transform: translateX(-50.0%);
+	padding:10px;
 }
 
-form #textarea1, form button {
-	width: 80%;
+input.form-control , form button {
+	width: 90%;
 	height: 8%;
 	align-self: center;
 	margin-top: 13px;
 }
 
-.btn {
-	height: 10%;
+button.btn {
+ 	color: #ffffff;
+    background-color: #d12828;
+    border-color: #d12828;
+}
+
+button.btn:hover , button.btn:active { 
+	    background-color: gray;
+ 
+	
 }

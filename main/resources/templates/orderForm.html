@@ -3,35 +3,38 @@
 	xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" th:href="@{/orderForm.css}">
 <link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
 <head>
 </head>
 <body>
 	<form class="row card" method="POST" th:object="${order}" th:action="@{/orders}">	 
-			<textarea id="textarea1" class="materialize-textarea"
-				placeholder="Name" th:field="*{name}" required></textarea>
+ 	
+			<input id="textarea1" class="form-control" 
+				placeholder="Name" th:field="*{name}" required></input>
 				
-			<textarea id="textarea1" class="materialize-textarea"
-				placeholder="Street adress" th:field="*{street}" required></textarea>
+			<input id="textarea1" class="form-control" 
+				placeholder="Street adress" th:field="*{street}" required></input>
 				
-			<textarea id="textarea1" class="materialize-textarea "
-				placeholder="City" th:field="*{city}" required></textarea>
+			<input id="textarea1" class="form-control" 
+				placeholder="City" th:field="*{city}" required></input>
 				
-			<textarea id="textarea1" class="materialize-textarea"
-				placeholder="State" th:field="*{state}" required></textarea>
+			<input id="textarea1" class="form-control" 
+				placeholder="State" th:field="*{state}" required></input>
 				
-			<textarea id="textarea1" class="materialize-textarea "
-				placeholder="ZipCode" th:field="*{zipCode}" required></textarea>
+			<input id="textarea1" class="form-control" 
+				placeholder="ZipCode" th:field="*{zipCode}" required></input>
 				
-			<textarea id="textarea1" class="materialize-textarea"
-				placeholder="Credit Card" th:field="*{creditCard}" required></textarea>
+			<input id="textarea1" class="form-control" 
+				placeholder="Credit Card" th:field="*{creditCard}" required></input>
 				
-			<textarea id="textarea1" class="materialize-textarea"
-				placeholder="CVV" th:field="*{cvv}" required></textarea>
+			<input id="textarea1" class="form-control" 
+				placeholder="CVV" th:field="*{cvv}" required></input>
 				
-			<button class="btn-large waves-effect waves-light" type="submit"
-				name="action">Submit</button>		 
+			<button class="btn btn-primary" type="submit"
+				name="action">Submit</button>		
+				 
 	</form>
 </body>
 </html>

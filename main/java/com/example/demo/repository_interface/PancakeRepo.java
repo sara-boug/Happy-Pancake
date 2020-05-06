@@ -4,6 +4,6 @@ import com.example.demo.Pancake;
 
 public interface PancakeRepo {
 	
-	Pancake save(Pancake pancakeInterface); 
+	Pancake save(Pancake pancake); 
 
 }

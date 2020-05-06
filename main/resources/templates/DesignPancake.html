@@ -4,72 +4,87 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
 <link rel="stylesheet" th:href="@{DesignPancake.css}">
 <title>Design you Pancake</title>
+ 
+
 
 </head>
 <body>
 	<form method="POST" th:object="${design}">
-		<div class="container">
-			<div id="topDiv" class="row">
-				<div class="input-field col s10">
-					<textarea id="textarea1" class="materialize-textarea"
-						placeholder="name your mixture" th:field="*{name}"></textarea>
-					<span th:if="${#fields.hasErrors('name')}" 
-					 th:errors="*{name}"> </span>
-						
-				</div>
-				<button class="btn waves-effect waves-light col s2 " type="submit"
-					name="action">Submit</button>
+	
+		<div  id="topDiv" class="container">
 
+ 			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<button class="btn btn-outline-secondary" type="submit">Button</button>
+				</div>
+				<input type="text" class="form-control" placeholder="" aria-label=""
+					aria-describedby="basic-addon1" th:field="*{name}">
+					<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"> </span>
+					
 			</div>
-
-			<div id="ingredContainer" class="row">
-
-				<div id="ingred" class="col s4">
-					<div class="card medium">
-						<div id="card-image" class="card-image">
-							<img th:src='@{/bar.png}' />
-						</div>
-						<label th:each="ingredient : ${chocolate}" class="content">
-							<input name="ingredient" type="checkbox"
-							th:value="${ingredient.id}" /> <span
-							th:text="${ingredient.name}">Ingredient </span>
-						</label>
-					</div>
-				</div>
-
-
-				<div id="ingred" class="col s4">
-					<div class="card medium">
-						<div class="card-image">
-							<img th:src='@{/fruit.png}' />
-						</div>
-						<label th:each="ingredient : ${fruits}" class="content"> <input
-							name="ingredient" type="checkbox" th:value="${ingredient.id}" />
-							<span th:text="${ingredient.name}">Ingredient </span>
-						</label>
-					</div>
-				</div>
-
-
-				<div id="ingred" class="col s4">
-					<div class="card medium">
-						<div class="card-image">
-							<img th:src='@{/food.png}' />
-						</div>
-						<label th:each="ingredient : ${flavor}" class="content"> <input
-							name="ingredient" type="checkbox" th:value="${ingredient.id}" />
-							<span th:text="${ingredient.name}">Ingredient </span>
-						</label>
-					</div>
-				</div>
-
-
-
-			</div>
+		 
 		</div>
+
+		<div  id ="container"  class="container">
+
+			<div class="card">
+				<img th:src='@{/raspberry.png}' class="card-image-top" />
+				<div class="card-body">
+					<div th:each="i : ${fruits}" class="input-group mb-3">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<input type="checkbox" th:field="*{ingredient}"
+									th:value="${i.id}" />
+							</div>
+						</div>
+						<label th:text="${i.name}" class="form-control"
+							aria-label="Text input with checkbox">Ingredient </label>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="card">
+				<img th:src='@{/chocolate-bar.png}' class="card-image-top" />
+				<div class="card-body">
+					<div th:each="i : ${chocolate}" class="input-group mb-3">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<input type="checkbox" th:field="*{ingredient}"
+									th:value="${i.id}" />
+							</div>
+						</div>
+						<label th:text="${i.name}" class="form-control"
+							aria-label="Text input with checkbox">Ingredient </label>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="card">
+				<img th:src='@{/nature.png}' class="card-image-top" />
+				<div class="card-body">
+					<div th:each="i : ${flavor}" class="input-group mb-3">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<input type="checkbox" th:field="*{ingredient}"
+									th:value="${i.id}" />
+							</div>
+						</div>
+						<label th:text="${i.name}" class="form-control"
+							aria-label="Text input with checkbox">Ingredient </label>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
 	</form>
 </body>
 </html>

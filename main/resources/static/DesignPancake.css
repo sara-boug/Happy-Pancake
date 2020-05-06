@@ -1,56 +1,46 @@
 body { /*#f37277 60%*/
 	background: -webkit-linear-gradient(90.0deg, rgba(255.0, 255.0, 255.0, 1.0)
-		0.0%, rgba(255.0, 255.0, 255.0, 1.0) 40.0%, #f37277 40.0%, #f37277
+		0.0%, rgba(255.0, 255.0, 255.0, 1.0) 40.0%, #2b2b2b 40.0%, black
 		100.0%);
 	background-repeat: no-repeat;
+ }
+form { 
+ 	margin-top:4%;
+ 
+ 
 }
-
-#ingredContainer {
-	/*margin-top:10.0%;*/
+.card {
+	
+	width: 18rem;
 	
 }
 
-#ingredContainer #ingred {
+
+#container{
+	display:flex; 
+	justify-content:space-between;
+ 	
+}
+
+.card img {
+	height:128px; 
+	 
+ 	margin:auto;
+ 	margin-top:20px;
+ 	margin-bottom:20px;
 	
 }
 
-#ingredContainer #ingred  .card {
+ 
+#topDiv .input-group { 
+	 height:100px;
+	 padding-bottom:40px;
+}
+
+button.btn { 
+	    color: #ffffff;
+    background-color: #d12828;
+        border-color: #d12828;
+    
 	
-}
-
-#ingredContainer #ingred  .card-image {
-	height: 400.0px;
-	width: 100.0%;
-	background-color: #f57a7f94;
-}
-
-#ingredContainer #ingred  .card .card-image img {
-	height: 200.0px;
-	width: 150.0px;
-	position: absolute;
-	left: 50.0%;
-	height: 50.0%;
-	transform: translate(-50.0%, 50.0%);
-}
-
-#ingredContainer #ingred  .card .content {
-	display: flex;
-	flex-direction: column;
-	margin-left: 10.0px;
-	margin-top: 20.0px;
-}
-
-#ingredContainer #ingred  .card .content input {
-	background-color: pink;
-}
-
-div#topDiv {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	color: white;
-}
-
-div#topDiv textarea {
-	color: white;
 }

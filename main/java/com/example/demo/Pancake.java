@@ -1,7 +1,8 @@
 package com.example.demo;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -12,9 +13,10 @@ public class Pancake {
 	@NotNull
 	@Size(min=5 , message="insert longeer name please")
 	private String name; 
-	/*@NotNull
+	/**@NotNull
 	@Size(min=1, message="at least one ingredient")*/
-	private ArrayList<String> ingredient; 
+	private ArrayList<Integer> ingredient; 
+	private  int oneIngredient ; 
 	
 	public long getid() { 
 		return this.id; 
@@ -26,8 +28,8 @@ public class Pancake {
 	public Date getcreatedAt() { 
 		return this.createdAt; 
 	}	
-	public void setcreateAt(Date createdAt ) { 
-		this.createdAt= createdAt; 
+	public void setcreateAt(Date date ) { 
+		this.createdAt= date; 
 	}
 	
 
@@ -39,13 +41,24 @@ public class Pancake {
 	public void setname(String name) { 
 		this.name= name; 
 	}
+	public int getoneIngredient() { 
+		return this.oneIngredient; 
+	}
 	
-	public ArrayList<String> getingredient() { 
+	public void setoneIngredient(int  oneIngredient) {
+		this.oneIngredient= oneIngredient;
+
+	}
+	
+
+	 public ArrayList<Integer> getingredient() { 
 		return this.ingredient; 
 	}
 	
-	public void setingredient(String ingredient) { 
-		this.ingredient.add(ingredient); 
+   public void setingredient(ArrayList<Integer> ingredient) { 
+  		this.ingredient = ingredient; 
+ 
+	 
 	}
 
 

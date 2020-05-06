@@ -16,15 +16,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.Ingredient.Type;
 import com.example.demo.repository.JdbcIngredient;
+import com.example.demo.repository.JdbcPancake;
 
 @Controller
 @RequestMapping("/design")
 public class PancakeDesign {
 	
 	private final  JdbcIngredient  jdbcIngredient  ; 
-	@Autowired
-	public PancakeDesign(JdbcIngredient  jdbcIngredient) { 
+	private final  JdbcPancake jdbcPancake; 
+ 	@Autowired
+	public PancakeDesign(JdbcIngredient  jdbcIngredient ,  JdbcPancake jdbcPancake ) { 
 		this.jdbcIngredient=jdbcIngredient;
+		this.jdbcPancake= jdbcPancake; 
 	}
 	@GetMapping
 	public String showDesignForm(Model model) {
@@ -38,9 +41,10 @@ public class PancakeDesign {
 	public String processDesign(@ModelAttribute("design") @Valid Pancake design, Errors error, Model model) {
 		displayIng(model);
 		if (error.hasErrors()) {
+			System.out.print(error);
 			return "DesignPancake";
 		}
-		System.out.print(design.getingredient());
+		System.out.println( design.getingredient()+" ");
 
 		return "redirect:/orders/current";
 	}

@@ -2,7 +2,7 @@
 
 create table if not exists PancakeOrder
 (
-   id int identity(1,1) primary key,
+   id  identity ,
    name varchar(30) not null,
    street varchar(30) not null,
    zipcode varchar(30) not null,
@@ -12,8 +12,8 @@ create table if not exists PancakeOrder
 );
 create table if not exists Pancake
 (
-  id int identity(1,1) primary key,
-    createdAt Date not null,
+  id   identity ,
+    createAt Date not null,
    name varchar (30) not null
 );
 create table if not exists PancakeOrder_Pancake
