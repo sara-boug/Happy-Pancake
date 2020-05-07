@@ -1,6 +1,6 @@
-package com.example.demo.repository_interface;
+package com.example.App.repository_interface;
 
-import com.example.demo.Ingredient;
+import com.example.App.domain.Ingredient;
 
 public interface IngredientRepo {
 	Iterable<Ingredient> findAll(); 

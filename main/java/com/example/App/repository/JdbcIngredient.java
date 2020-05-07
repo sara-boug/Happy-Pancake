@@ -1,4 +1,4 @@
-package com.example.demo.repository;
+package com.example.App.repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -6,8 +6,8 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.Ingredient;
-import com.example.demo.repository_interface.IngredientRepo;
+import com.example.App.domain.Ingredient;
+import com.example.App.repository_interface.IngredientRepo;
 
 
 @Repository

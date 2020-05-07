@@ -5,7 +5,7 @@ create table if not exists PancakeOrder
    id  identity ,
    name varchar(30) not null,
    street varchar(30) not null,
-   zipcode varchar(30) not null,
+   zipCode varchar(30) not null,
    state varchar(30) not null,
    city varchar(30) not null,
    creditCard varchar(30) not null

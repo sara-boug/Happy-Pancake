@@ -1,6 +1,7 @@
-package com.example.demo;
+package com.example.App.domain;
 
-import java.sql.Date;
+import java.util.Date;
+import java.util.ArrayList;
 
 import javax.validation.constraints.NotBlank;
 
@@ -29,11 +30,14 @@ public class Order {
 
 	private String cvv;
 	private Date placedAt;
-
+    private ArrayList<Pancake> pancakes ; 
+    public Order () { 
+    	pancakes= new ArrayList<>(); 
+    }
 	public long getid() {
 		return this.id;
 	}
-
+   
 	public void setid(long id) {
 		this.id = id;
 	}
@@ -100,6 +104,14 @@ public class Order {
 
 	public void setplacedAt(Date placedAt) {
 		this.placedAt= placedAt;
+	}
+	
+	public void addPancake(Pancake pancake) { // in order to make several pancake designs
+ 		this.pancakes.add(pancake);            // to the same order
+	}
+	
+	public ArrayList<Pancake> getPancake(){ 
+		return this.pancakes; 
 	}
 
 }
