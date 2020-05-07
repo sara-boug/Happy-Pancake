@@ -52,7 +52,6 @@ public class PancakeDesign {
 			Errors error, Model model,  @ModelAttribute("order") Order order ) {
 		displayIng(model);
 		if (error.hasErrors()) {
-			System.out.print(error);
 			return "DesignPancake";
 		}
 		Pancake pancake=  jdbcPancake.save(design);

@@ -37,7 +37,7 @@ public class JdbcPancakeOrder implements PancakeOrderRepo {
         	saveToPancake_PancakeOrder(element, orderId); 
         	
         }
-		return null;
+		return order;
 	}
 
 	@SuppressWarnings({ "unchecked" })

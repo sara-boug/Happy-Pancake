@@ -24,10 +24,12 @@
 				</div>
 				<input type="text" class="form-control" placeholder="" aria-label=""
 					aria-describedby="basic-addon1" th:field="*{name}">
-					<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"> </span>
-					
-			</div>
-		 
+				</div>
+		 <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"> </span>	
+		 <br>
+		 <span th:if="${#fields.hasErrors('ingredient')}" th:errors="*{ingredient}"> </span>
+		 	 
+		 	 
 		</div>
 
 		<div  id ="container"  class="container">

@@ -3,18 +3,18 @@
 create table if not exists PancakeOrder
 (
    id  identity ,
-   name varchar(30) not null,
-   street varchar(30) not null,
-   zipCode varchar(30) not null,
-   state varchar(30) not null,
-   city varchar(30) not null,
-   creditCard varchar(30) not null
+   name varchar(100) not null,
+   street varchar(100) not null,
+   zipCode varchar(100) not null,
+   state varchar(100) not null,
+   city varchar(100) not null,
+   creditCard varchar(100) not null
 );
 create table if not exists Pancake
 (
   id   identity ,
     createAt Date not null,
-   name varchar (30) not null
+   name varchar (100) not null
 );
 create table if not exists PancakeOrder_Pancake
 (
@@ -27,8 +27,8 @@ alter table PancakeOrder_Pancake add foreign key (id_PancakeOrder) references Pa
 create table if not exists Ingredient
 (
   id int identity(1,1) primary key,
-     name varchar(30) not null,
-   types varchar(30) not null
+     name varchar(100) not null,
+   types varchar(100) not null
 );
 create table if not exists Ingredient_Pancake
 (

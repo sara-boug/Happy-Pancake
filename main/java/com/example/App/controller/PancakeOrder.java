@@ -35,10 +35,11 @@ public class PancakeOrder {
 	@PostMapping
 	public String postOrder( @ModelAttribute("order") @Valid Order order 
 			, Errors error , SessionStatus  status) { 
-		if(error.hasErrors()) { 
+		if(error.hasErrors()) {
+			System.out.print(error);
 			return "orderForm";
 		}
-		this.jdbcPancakeOrder.save(order);
+	    this.jdbcPancakeOrder.save(order);
 		status.isComplete(); 
 		return"redirect:/"; 
  	}

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import javax.validation.constraints.NotBlank;
 
-import org.hibernate.validator.constraints.CreditCardNumber;
 
 public class Order {
 	private long id;
@@ -23,7 +22,7 @@ public class Order {
 	@NotBlank(message = "city not blank")
 
 	private String city;
-	@CreditCardNumber(message = "credit card number not blank")
+	@NotBlank(message = "credit card number not blank")
 
 	private String creditCard;
 	@NotBlank(message = "cvv not blank")

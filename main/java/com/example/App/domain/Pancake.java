@@ -10,10 +10,10 @@ public class Pancake {
 	private  long id; 
 	private Date createdAt; 
 	@NotNull
-	@Size(min=5 , message="insert longeer name please")
+	@Size(min=5 , message="insert longer name please !")
 	private String name; 
 	@NotNull
-	@Size(min=1, message="at least one ingredient")
+	@Size(min=1, message="at least one ingredient !")
 	private ArrayList<Integer> ingredient; 
 	private  int oneIngredient ; 
 	

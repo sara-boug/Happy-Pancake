@@ -19,6 +19,7 @@ form {
 #container{
 	display:flex; 
 	justify-content:space-between;
+	margin-top:20px;
  	
 }
 
@@ -33,10 +34,16 @@ form {
 
  
 #topDiv .input-group { 
-	 height:100px;
-	 padding-bottom:40px;
+	 height:70px;
+	 padding-bottom:10px;
 }
 
+span { 
+margin-top:10px; 
+margin-bottom:10px; 
+color:#dc3545;
+
+}
 button.btn { 
 	    color: #ffffff;
     background-color: #d12828;
