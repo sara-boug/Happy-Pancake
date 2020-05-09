@@ -3,16 +3,18 @@ package com.example.App.domain;
 import java.util.ArrayList;
 import java.util.List;
 
- 
-public class Ingredient {
 
+
+ 
+
+public class Ingredient {
 	public  int id ; 
 	public   String name ; 
 	public  Type type; 	
 	public static enum Type { 
 		  CHOCOLATE, FLAVOR,FRUITS
 	}
-
+   
 	public Ingredient(int id , String name ,Type type ) { 
 		this.id = id; 
 		this.name=name; 

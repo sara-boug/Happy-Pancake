@@ -3,11 +3,12 @@ package com.example.App.domain;
 import java.util.Date;
 import java.util.ArrayList;
 
-import javax.validation.constraints.NotBlank;
+  import javax.validation.constraints.NotBlank;
 
 
+  
 public class Order {
-	private long id;
+ 	private long id;
 	@NotBlank(message = "name not blank")
 	private String name;
 	@NotBlank(message = "street not blank")
