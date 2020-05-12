@@ -25,7 +25,7 @@ public class PancakeOrder {
 	public PancakeOrder(JdbcPancakeOrder jdbcPancakeOrder) { 
 		this.jdbcPancakeOrder=jdbcPancakeOrder; 
 	}
-	@GetMapping("/current")
+	@GetMapping
 	public  String  Currentorder(Model model ) {		
 		model.addAttribute("order", new Order());		
 		return "orderForm"; 

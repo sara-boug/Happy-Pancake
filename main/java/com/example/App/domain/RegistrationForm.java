@@ -9,9 +9,12 @@ public class RegistrationForm {
 	private String phoneNumber; 
 	private String Password; 
   
-	public User toUser(PasswordEncoder passwordEncoder) { 
+	public User toUser( PasswordEncoder passwordEncoder) { 
 		return new User(
-				this.Username, this.email , this.phoneNumber, passwordEncoder.encode(this.Password)								); 
+				this.Username.toString().toLowerCase().trim(),
+				this.email.toString().toLowerCase().trim() ,
+				this.phoneNumber.toString().toLowerCase().trim(),
+				passwordEncoder.encode( this.Password.trim())); 
 	}
 	public String getemail() {
 		return this.email;

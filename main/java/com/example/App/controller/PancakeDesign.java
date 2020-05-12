@@ -58,7 +58,7 @@ public class PancakeDesign {
  		order.addPancake(pancake);
 		
 
-		return "redirect:/orders/current";
+		return "redirect:/orders";
 	}
 
 	public Model displayIng(Model model) {
