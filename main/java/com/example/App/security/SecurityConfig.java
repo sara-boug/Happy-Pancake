@@ -12,7 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
-    private UserRepoUserDetailSrevice usd; 
+    private UserRepoUserDetailService usd; 
 	@Bean
 	public PasswordEncoder encoder() { 
 		return new  BCryptPasswordEncoder(); 
@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.formLogin()
 	     .loginPage("/login")
 		.defaultSuccessUrl("/design", true)
-   		.usernameParameter("username")
+   		.usernameParameter("email")
 		.passwordParameter("password")
 ;
 		

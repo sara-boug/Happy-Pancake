@@ -32,8 +32,13 @@ public class UserRegistration {
 	}
 	
 	@PostMapping
-   public String processRegistration(@ModelAttribute("form") RegistrationForm form) { 
-		this.jdbcUser.save(form.toUser( passwordEncoder)); 
-     	   return "redirect:/login"; 
+   public String processRegistration(@ModelAttribute("form") RegistrationForm form)   {
+		if(this.jdbcUser.existEmail(form.getemail())) { 
+			return "redirect:/signup?error= email already exist s!"; 
+ 		}else { 
+	 		this.jdbcUser.save(form.toUser( passwordEncoder)); 
+	     	   return "redirect:/login"; 
+
+		}
    }
 }

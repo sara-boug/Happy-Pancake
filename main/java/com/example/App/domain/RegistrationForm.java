@@ -7,7 +7,8 @@ public class RegistrationForm {
 	private String Username; 
 	private String email ; 
 	private String phoneNumber; 
-	private String Password; 
+	private String Password;
+	private String confirmedPassword; 
   
 	public User toUser( PasswordEncoder passwordEncoder) { 
 		return new User(
@@ -37,6 +38,15 @@ public class RegistrationForm {
 	public String getPassword() {
 		return this.Password; 
  	}
+	
+	public void setconfirmedPassword(String confirmedPassword) { 
+		this.confirmedPassword=confirmedPassword; 
+	}
+	 
+	public String getconfirmedPassword() {
+		return this.confirmedPassword; 
+ 	}
+
 	
 	public void setUsername(String Username) { 
 		this.Username=Username; 
