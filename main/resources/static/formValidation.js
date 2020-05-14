@@ -2,18 +2,32 @@ var psw1= document.getElementById("psw1");
 var psw2 = document.getElementById("psw2");
 var pwdWarning = document.getElementById("pwdWarning"); 
 var emailWarning = document.getElementById("emailWarning"); 
+var phoneNumWarning = document.getElementById("phoneNumWarning"); 
 var btn = document.getElementById("button");
 var email = document.getElementById("email"); 
+var phoneNumber = document.getElementById("phoneNumber");
 
 handlePasswordMatching(psw1,psw2); 
 handlePasswordMatching(psw2, psw1);
 validateEmail(email);
- 
+validatephoneNumber(phoneNumber);
 
-function validateEmail(email){  // using a regular exp to 
-              
+function validatephoneNumber(phoneNumber) { 
+    var regExp=/(06|07|05){1}\d{8}$/; // wich matches the standard phone numbers in algeria without special consideration to fix ones
+    phoneNumber.addEventListener("input", function(){ 
+   if(/(06|07|05){1}\d{8}$/.test( phoneNumber.value.toString().trim()  )){ 
+          handleStyle(phoneNumWarning, btn, "green","", false);     
+       } else { 
+          handleStyle(phoneNumWarning , btn, "red","insert a valid phone number please", true); 
+       
+        }
+   })
+
+}
+
+function validateEmail(email){  // using a regular exp to validate the  email        
   email.addEventListener("input", function(){ 
-     if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ .test(email.value.trim())) { 
+     if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ .test(email.value.trim( ))) { 
         handleStyle(emailWarning , btn, "green","", false);     
     } else { 
        handleStyle(emailWarning , btn, "red","Insert a valid email please", true); 

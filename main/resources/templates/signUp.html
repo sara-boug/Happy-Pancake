@@ -10,10 +10,6 @@
  
 <head>
 <style>
-form {
-	
-}
-
 input.form-control, form button {
 	width: 90%;
 	height: 10%;
@@ -24,19 +20,32 @@ input.form-control, form button {
 <body>
 	<form class="row card" method="POST" th:action="@{/signup}"
 		th:object="${form}">
-        <p  class="form-control" th:if="${param.error}" th:text=" ${param.error}"> </p>
-        <input class="form-control" type="text" th:field="*{Username}" placeholder="Fullname" required></input> 
-		<input id="email" class="form-control"	type="text" placeholder="Email" th:field="*{email}"  required></input>    
-		 <p id="emailWarning"> </p>       
-		<input class="form-control" type="number" th:field="*{phoneNumber}"	placeholder="Phone Number" required></input>
+        <p  class="form-control" th:if="${param.error}" th:text=" ${param.error}"> </p>       
+        <input class="form-control" type="text" th:field="*{Username}" placeholder="Fullname"  required></input> 
+        <p   th:if="${#fields.hasErrors('Username')}" th:errors="*{Username}" > </p>
+        
+        
+		<input id="email" class="form-control"	type="text" placeholder="Email" th:field="*{email}"  required></input> 	   
+		<p   id="emailWarning"       > </p>    
+		 <p   id="emailWarning"     th:if="${#fields.hasErrors('email')}"  th:errors="*{email}"> </p>    
+		 
+		<input id="phoneNumber" class="form-control" type="number" th:field="*{phoneNumber}"	placeholder="Phone Number" required></input>		
+		<p id="phoneNumWarning"  > </p>
+		<p  th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"> </p>
+		
+		
 		 <input id="psw1"	class="form-control" type="password" placeholder="Password"	th:field="*{Password}" required></input> 
-		 <input  id="psw2" class="form-control"	type="password" placeholder="Confirm Password" th:field="*{confirmedPassword}" required></input>
+		 <input  id="psw2" class="form-control"	type="password" placeholder="Confirm Password" th:field="*{confirmedPassword}" required></input>		
 		 <p id="pwdWarning"> </p>
+		 <p  th:if="${#fields.hasErrors('Password')}" th:errors="*{Password}"> </p>
+		 
+		 
 		<button id="button" class="btn btn-primary" type="submit" name="action" disabled>SignUp</button>
 		<span> already have an <strong><a href="/login">Account?</a></strong>
 		</span>
-<script type="text/javascript" th:src="@{/formValidation.js}"></script>
-
+ 
 	</form>
+	<script type="text/javascript" th:src="@{/formValidation.js}"></script>
+	
 </body>
 </html>

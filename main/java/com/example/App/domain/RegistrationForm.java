@@ -1,13 +1,27 @@
 package com.example.App.domain;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 public class RegistrationForm {
-
+    	
+	@NotNull
+    @Size(min = 3, max = 100, message= "Username must be between 3 and 200 characters")
 	private String Username; 
+	@NotNull
+	@Email(message="insert a valid email")
 	private String email ; 
+	@NotNull
+	@Pattern(regexp ="(06|07|05){1}\\d{8}$" , message= "insert a valid phone number")
 	private String phoneNumber; 
+	@NotNull
+    @Size(min = 4, max = 100, message= "insert a longer between 3 and 200 characters")
 	private String Password;
+	@NotNull
 	private String confirmedPassword; 
   
 	public User toUser( PasswordEncoder passwordEncoder) { 
