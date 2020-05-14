@@ -3,6 +3,8 @@
  delete  from Ingredient ; 
  delete  from PancakeOrder_Pancake; 
  delete  from Ingredient_Pancake; 
+  delete  from Users; 
+ 
  
  insert into Ingredient (name, types) values ('white chocolate' , 'CHOCOLATE');
  insert into Ingredient (name, types) values ('dark chocolate' , 'CHOCOLATE');

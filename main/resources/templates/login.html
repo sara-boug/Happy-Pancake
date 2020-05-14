@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/register.css}">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<head>
+<style>
+form {
+	height: 400px;
+}
+
+input.form-control, form button {
+	width: 90%;
+	height: 14%;
+}
+</style>
+</head>
+<body>
+
+	<form class="row card" method="Post"  th:action="@{/login}" >
+        <p  class="form-control" th:if="${param.error}">⚠️  an Error with credentials login later or signup </p>
+        <input  class="form-control" type="text"placeholder="Email" name="email"  required></input>
+	    <input 	class="form-control" type="password" placeholder="Password"  name="password" required></input>
+		<button class="btn btn-primary" type="submit" name="action">login</button>
+		<span> Create an <strong><a href="/signup">Account?</a></strong>
+		</span>
+
+	</form>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/register.css}">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+ 
+ 
+<head>
+<style>
+form {
+	
+}
+
+input.form-control, form button {
+	width: 90%;
+	height: 10%;
+}
+</style>
+
+</head>
+<body>
+	<form class="row card" method="POST" th:action="@{/signup}"
+		th:object="${form}">
+        <p  class="form-control" th:if="${param.error}" th:text=" ${param.error}"> </p>
+        <input class="form-control" type="text" th:field="*{Username}" placeholder="Fullname" required></input> 
+		<input id="email" class="form-control"	type="text" placeholder="Email" th:field="*{email}"  required></input>    
+		 <p id="emailWarning"> </p>       
+		<input class="form-control" type="number" th:field="*{phoneNumber}"	placeholder="Phone Number" required></input>
+		 <input id="psw1"	class="form-control" type="password" placeholder="Password"	th:field="*{Password}" required></input> 
+		 <input  id="psw2" class="form-control"	type="password" placeholder="Confirm Password" th:field="*{confirmedPassword}" required></input>
+		 <p id="pwdWarning"> </p>
+		<button id="button" class="btn btn-primary" type="submit" name="action" disabled>SignUp</button>
+		<span> already have an <strong><a href="/login">Account?</a></strong>
+		</span>
+<script type="text/javascript" th:src="@{/formValidation.js}"></script>
+
+	</form>
+</body>
+</html>

@@ -2,8 +2,8 @@ create table if not exists Users(
   id identity, 
   fullname varchar(100) not null, 
   email varchar(100) not null , 
-  password varchar(300) not null , 
-  phonenulber varchar(20) not  null
+  phonenumber varchar(20) not  null,
+  password varchar(300) not null 
   
 );
 
