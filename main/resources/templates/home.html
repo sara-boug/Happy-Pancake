@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" th:href="@{/index.css}">
 <link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/index.css}">
+	
 <head>
 <title>Pancake Cloud</title>
 </head>
@@ -12,7 +14,7 @@
 	<h3>Welcome to <strong> <h2>Happy Pancake</h2></strong></h3>
 	<img th:src='@{/index.png}' class="section" />
 	<div class="section">
-		<a class="waves-effect waves-light btn-large" href="/design">Commend Now ▶</a>
+		<a class="btn btn-primary" href="/design">Commend Now ➤ </a>
 	</div>
 </body>
 </html>

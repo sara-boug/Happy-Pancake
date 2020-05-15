@@ -19,7 +19,7 @@ public class RegistrationForm {
 	@Pattern(regexp ="(06|07|05){1}\\d{8}$" , message= "insert a valid phone number")
 	private String phoneNumber; 
 	@NotNull
-    @Size(min = 4, max = 100, message= "insert a longer between 3 and 200 characters")
+    @Size(min = 4, max = 100, message= "insert a longer password between 3 and 200 characters")
 	private String Password;
 	@NotNull
 	private String confirmedPassword; 

@@ -22,7 +22,7 @@ public class JdbcUser implements UserRepo {
 	@Override
 	public User findByUserName(String email)  throws EmptyResultDataAccessException  {
 		try {	
- 		User user =  template.queryForObject("select  fullname, email ,phonenumber , password from users where email =?",
+ 		User user =  template.queryForObject("select  id,  fullname, email ,phonenumber , password from users where email =?",
 				this::mapRowUserDetail, email.toString().trim());
  		return user;
 		}catch(EmptyResultDataAccessException exp) { 
@@ -33,7 +33,10 @@ public class JdbcUser implements UserRepo {
 
 	private User mapRowUserDetail(ResultSet rs, int rowNum) throws SQLException {
 		if (rs != null) {
-			return new User(rs.getString("fullname"), rs.getString("email"), rs.getString("phonenumber"),
+			return new User(
+ 					rs.getString("fullname"), 
+					rs.getString("email"), 
+					rs.getString("phonenumber"),
 					rs.getString("password"));
 		} else {
 			return null;
@@ -54,7 +57,11 @@ public class JdbcUser implements UserRepo {
 				this::mapRowUserDetail);
 
 	}
-
+   public int  findUserId(String email){ 
+	  int user=  template.queryForObject("select  id  from users where email =?",
+				    Integer.class, email.toString().trim());
+	 return user; 
+    }
 	public Boolean existEmail(String email) {
 
 		try {

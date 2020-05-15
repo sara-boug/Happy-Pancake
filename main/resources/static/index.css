@@ -1,6 +1,6 @@
 body { /*#f37277 60%*/
 	background: -webkit-linear-gradient(90.0deg, rgba(255.0, 255.0, 255.0, 1.0)
-		0.0%, rgba(255.0, 255.0, 255.0, 1.0) 40.0%, #f37277 40.0%, #f37277
+		0.0%, rgba(255.0, 255.0, 255.0, 1.0) 40.0%, #2b2b2b 40.0%, black
 		100.0%);
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -9,7 +9,28 @@ body { /*#f37277 60%*/
 }
 
 img {
+	margin-top: 50px; 	
 	text-align: center;
 	height: 350.0px;
 	width: 300.0px;
+}
+a.btn { 
+	    color: #ffffff;
+         background-color: #d12828;
+        border-color: #d12828;
+        width: 250px; 
+         height: 60px;
+        margin-top: 50px; 
+    	font-size: 22px;
+    	font-weight:lighter; 
+    
+}
+
+h3 { 
+	font-size: 35px;
+}
+
+h2{ 
+		font-size: 42px;
+	
 }

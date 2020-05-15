@@ -9,12 +9,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class User implements UserDetails {
 	private static final long serialVersionUID = 1L;
+	private int id; 
 	private String Username; 
 	private String email ; 
 	private String phoneNumber; 
 	private String Password; 
-    public User(String Username,String email , String phoneNumber , String Password) { 
-    	this.Username= Username; 
+    public User(    String Username,String email , String phoneNumber , String Password) { 
+     	this.Username= Username; 
     	this.email=email; 
         this.Password=Password; 
         this.phoneNumber=phoneNumber; 
@@ -72,6 +73,14 @@ public class User implements UserDetails {
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return true;
+	}
+
+	public int getid() {
+		return id;
+	}
+
+	public void setid(int id) {
+		this.id = id;
 	}
 
 

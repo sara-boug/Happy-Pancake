@@ -15,17 +15,19 @@ create table if not exists PancakeOrder
    zipCode varchar(100) not null,
    state varchar(100) not null,
    city varchar(100) not null,
-   creditCard varchar(100) not null
+   creditCard varchar(100) not null,
+   id_Users int not null
+   
 );
+alter table PancakeOrder add foreign key (id_Users) references Users(id); 
+
 create table if not exists Pancake
 (
     id identity ,
     createAt Date not null,
-    name varchar (100) not null, 
-    id_Users int not null
+    name varchar (100) not null
     
 );
-alter table Pancake add foreign key (id_Users) references Users(id); 
 
 create table if not exists PancakeOrder_Pancake
 (

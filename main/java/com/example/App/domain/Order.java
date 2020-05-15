@@ -31,6 +31,7 @@ public class Order {
 	private String cvv;
 	private Date placedAt;
     private ArrayList<Pancake> pancakes ; 
+    private int id_users ; 
     public Order () { 
     	pancakes= new ArrayList<>(); 
     }
@@ -112,6 +113,12 @@ public class Order {
 	
 	public ArrayList<Pancake> getPancake(){ 
 		return this.pancakes; 
+	}
+	public int  getid_users() {
+		return id_users;
+	}
+	public void setid_users(int user) {
+		this.id_users = user;
 	}
 
 }

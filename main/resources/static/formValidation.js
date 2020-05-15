@@ -13,7 +13,7 @@ validateEmail(email);
 validatephoneNumber(phoneNumber);
 
 function validatephoneNumber(phoneNumber) { 
-    var regExp=/(06|07|05){1}\d{8}$/; // wich matches the standard phone numbers in algeria without special consideration to fix ones
+    var regExp=/(06|07|05){1}\d{8}$/; // which matches the standard phone numbers in algeria without special consideration to fix ones
     phoneNumber.addEventListener("input", function(){ 
    if(/(06|07|05){1}\d{8}$/.test( phoneNumber.value.toString().trim()  )){ 
           handleStyle(phoneNumWarning, btn, "green","", false);     
