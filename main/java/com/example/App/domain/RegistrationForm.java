@@ -11,7 +11,7 @@ public class RegistrationForm {
     	
 	@NotNull
     @Size(min = 3, max = 100, message= "Username must be between 3 and 200 characters")
-	private String Username; 
+	private String name; 
 	@NotNull
 	@Email(message="insert a valid email")
 	private String email ; 
@@ -20,17 +20,25 @@ public class RegistrationForm {
 	private String phoneNumber; 
 	@NotNull
     @Size(min = 4, max = 100, message= "insert a longer password between 3 and 200 characters")
-	private String Password;
+	private String password;
 	@NotNull
 	private String confirmedPassword; 
   
 	public User toUser( PasswordEncoder passwordEncoder) { 
-		return new User(
-				this.Username.toString().toLowerCase().trim(),
+ 		return new User(
+				this.name.toString().trim().toLowerCase() ,
 				this.email.toString().toLowerCase().trim() ,
 				this.phoneNumber.toString().toLowerCase().trim(),
-				passwordEncoder.encode( this.Password.trim())); 
+				passwordEncoder.encode( this.password.trim())
+				); 
 	}
+	public void setname(String Username) { 
+		this.name=Username; 
+	}
+ 	public String getname() {
+		return this.name; 
+ 	}
+
 	public String getemail() {
 		return this.email;
 	}
@@ -45,12 +53,12 @@ public class RegistrationForm {
 		this.phoneNumber=phoneNumber; 
 	}
  	
-	public void setPassword(String Password) { 
-		this.Password=Password; 
+	public void setpassword(String password) { 
+		this.password=password; 
 	}
 	 
-	public String getPassword() {
-		return this.Password; 
+	public String getpassword() {
+		return this.password; 
  	}
 	
 	public void setconfirmedPassword(String confirmedPassword) { 
@@ -62,11 +70,5 @@ public class RegistrationForm {
  	}
 
 	
-	public void setUsername(String Username) { 
-		this.Username=Username; 
-	}
- 	public String getUsername() {
-		return this.Username; 
- 	}
 
 }

@@ -15,6 +15,10 @@ import javax.validation.constraints.Size;
 	@Size(min=1, message="at least one ingredient !")
  	private ArrayList<Integer> ingredient; 
 	private  int oneIngredient ; 
+	public Pancake(Date createdAt , String name ) { 
+		this.createdAt  = createdAt ; 
+		this.name= name; 
+	}
 	
 	public long getid() { 
 		return this.id; 

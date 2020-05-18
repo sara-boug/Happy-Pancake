@@ -1,5 +1,7 @@
 package com.example.App.repository;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Types;
 import java.util.Arrays;
 import java.util.Date;
@@ -34,15 +36,13 @@ public class JdbcPancake implements PancakeRepo {
 	private Long saveToPancake(Pancake pancake) {
 		pancake.setcreateAt(new Date());
 		PreparedStatementCreatorFactory pscf=new PreparedStatementCreatorFactory(
-				"insert into Pancake(name , createAt) values(?,?)", Types.VARCHAR, Types.DATE);
+				"insert into Pancake(name , createdAt) values(?,?)", Types.VARCHAR, Types.DATE);
 		pscf.setReturnGeneratedKeys(true);
 		PreparedStatementCreator psc = pscf
 						.newPreparedStatementCreator(Arrays.asList(pancake.getname(),
 								pancake.getcreatedAt()));
-		System.out.println("psc" + psc);
 		KeyHolder keyholder = new GeneratedKeyHolder();
 		template.update(psc, keyholder);
-		System.out.println("Key" + " " + keyholder.getKey().longValue());
 		return keyholder.getKey().longValue();
 	}
 
@@ -51,5 +51,19 @@ public class JdbcPancake implements PancakeRepo {
 				pancakeId);
 
 	}
-
+	
+	public Iterable<Pancake>  findAll() { 
+		return template.query("select name , createdAt from pancake", this::rowMapper);
+		
+	}
+	private Pancake rowMapper(ResultSet rs , int rowNum) throws SQLException { 
+		return new Pancake( 
+				rs.getDate("createdAt"), 
+				rs.getString("name")
+				); 
+	}
+	
+	public Pancake findById(int id) { 
+		return template.queryForObject("select  name , createdAt from pancake where id = ? ", this::rowMapper,id ); 
+	}
 }

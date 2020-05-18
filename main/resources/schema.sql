@@ -24,7 +24,7 @@ alter table PancakeOrder add foreign key (id_Users) references Users(id);
 create table if not exists Pancake
 (
     id identity ,
-    createAt Date not null,
+    createdAt Date not null,
     name varchar (100) not null
     
 );

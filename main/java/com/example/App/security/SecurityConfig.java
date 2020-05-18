@@ -24,18 +24,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 	@Override
 	protected void  configure(HttpSecurity http ) throws Exception  { 
-		http.authorizeRequests()
-		 .antMatchers("/design" ,"/orders")
+	http.authorizeRequests()
+		 .antMatchers("/design" ,"/orders" , "/design/**" )
 		.access("hasRole('ROLE_USER')")	
 		.antMatchers("/", "/**").access("permitAll")
 		.and()
 		.formLogin()
 	     .loginPage("/login")
-		.defaultSuccessUrl("/design", true)
    		.usernameParameter("email")
 		.passwordParameter("password")
 		.and()
 	    .logout()
-	    .logoutSuccessUrl("/login");
+	    .logoutSuccessUrl("/login")
+	    .and()
+	    .csrf().disable();
  	}
 }

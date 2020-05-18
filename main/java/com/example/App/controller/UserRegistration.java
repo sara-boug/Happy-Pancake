@@ -1,4 +1,4 @@
-package com.example.App.controller;
+/*package com.example.App.controller;
 
  
 import javax.validation.Valid;
@@ -49,3 +49,4 @@ public class UserRegistration {
 		}
    }
 }
+*/
