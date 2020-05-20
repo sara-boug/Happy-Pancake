@@ -8,6 +8,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
  
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -17,6 +20,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public PasswordEncoder encoder() { 
 		return new  BCryptPasswordEncoder(); 
 	}
+	@Bean 
+	CorsConfigurationSource corsConfig() { 
+		UrlBasedCorsConfigurationSource source= new UrlBasedCorsConfigurationSource();  
+		source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
+		return source; 
+	}
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(usd)
@@ -24,19 +33,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 	@Override
 	protected void  configure(HttpSecurity http ) throws Exception  { 
-	http.authorizeRequests()
-		 .antMatchers("/design" ,"/orders" , "/design/**" )
-		.access("hasRole('ROLE_USER')")	
-		.antMatchers("/", "/**").access("permitAll")
-		.and()
-		.formLogin()
-	     .loginPage("/login")
-   		.usernameParameter("email")
-		.passwordParameter("password")
-		.and()
-	    .logout()
-	    .logoutSuccessUrl("/login")
-	    .and()
-	    .csrf().disable();
- 	}
+		 http.cors().and().csrf().disable().authorizeRequests()
+		 .antMatchers("/design", "/design/**", "/order/**")	
+		 .authenticated()	
+		 .antMatchers("/", "/**").anonymous()
+		 .and()
+		 .addFilter(new JwtAuthentificationTokenFilter(authenticationManager()))
+		 .addFilter(new TokenVerification(authenticationManager()))
+		 .logout( ) ;
+  	}
 }

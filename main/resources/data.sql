@@ -7,6 +7,7 @@
  
  
  
+ 
  insert into Ingredient (name, types) values ('white chocolate' , 'CHOCOLATE');
  insert into Ingredient (name, types) values ('dark chocolate' , 'CHOCOLATE');
  
