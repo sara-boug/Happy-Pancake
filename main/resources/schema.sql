@@ -16,6 +16,8 @@ create table if not exists PancakeOrder
    state varchar(100) not null,
    city varchar(100) not null,
    creditCard varchar(100) not null,
+   cvv varchar(100) not null,
+   placedAt Date not null, 
    id_Users int not null
    
 );

@@ -26,7 +26,7 @@ public class JdbcPancake implements PancakeRepo {
 	@Override
 	public Pancake save(Pancake pancake) {
 		long pancakeId = saveToPancake(pancake);
-		for (Integer i : pancake.getingredient()) {
+		for (int i : pancake.getingredient()) {
 			this.saveToPancake_Ingredient(i, pancakeId);
 		}
 

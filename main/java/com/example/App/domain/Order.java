@@ -2,8 +2,7 @@ package com.example.App.domain;
 
 import java.util.Date;
 import java.util.ArrayList;
-
-  import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotBlank;
 
 
   
@@ -30,10 +29,21 @@ public class Order {
 
 	private String cvv;
 	private Date placedAt;
-    private ArrayList<Pancake> pancakes ; 
+    private ArrayList<Integer> pancakes ; 
     private int id_users ; 
-    public Order () { 
+    public Order (long id , String name, String street , String zipCode , String state , String city , String creditCard , 
+    		String cvv , Date placedAt) { 
     	pancakes= new ArrayList<>(); 
+    	
+    	this.id= id ; 
+    	this.name=name; 
+    	this.street = street ; 
+    	this.zipCode= zipCode; 
+    	this.state = state; 
+    	this.city = city; 
+    	this.creditCard= creditCard; 
+    	this.cvv= cvv; 
+    	this.placedAt = placedAt; 
     }
 	public long getid() {
 		return this.id;
@@ -107,11 +117,11 @@ public class Order {
 		this.placedAt= placedAt;
 	}
 	
-	public void addPancake(Pancake pancake) { // in order to make several pancake designs
+	public void setPancake(int pancake) { // in order to make several pancake designs
  		this.pancakes.add(pancake);            // to the same order
 	}
 	
-	public ArrayList<Pancake> getPancake(){ 
+	public ArrayList<Integer> getPancake(){ 
 		return this.pancakes; 
 	}
 	public int  getid_users() {
