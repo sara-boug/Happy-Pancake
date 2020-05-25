@@ -53,17 +53,18 @@ public class JdbcPancake implements PancakeRepo {
 	}
 	
 	public Iterable<Pancake>  findAll() { 
-		return template.query("select name , createdAt from pancake", this::rowMapper);
+		return template.query("select   id , name , createdAt from pancake", this::rowMapper);
 		
 	}
 	private Pancake rowMapper(ResultSet rs , int rowNum) throws SQLException { 
 		return new Pancake( 
+				rs.getInt("id"), 
 				rs.getDate("createdAt"), 
 				rs.getString("name")
 				); 
 	}
 	
 	public Pancake findById(int id) { 
-		return template.queryForObject("select  name , createdAt from pancake where id = ? ", this::rowMapper,id ); 
+		return template.queryForObject("select   id , name , createdAt from pancake where id = ? ", this::rowMapper,id ); 
 	}
 }

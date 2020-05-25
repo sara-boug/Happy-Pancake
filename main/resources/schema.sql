@@ -1,5 +1,5 @@
 create table if not exists Users(
-  id identity, 
+  id  int  Identity(1,1) primary Key, 
   fullname varchar(100) not null, 
   email varchar(100) not null , 
   phonenumber varchar(20) not  null,
@@ -9,7 +9,7 @@ create table if not exists Users(
 
 create table if not exists PancakeOrder
 (
-   id  identity ,
+   id int  Identity(1,1) primary Key,
    name varchar(100) not null,
    street varchar(100) not null,
    zipCode varchar(100) not null,
@@ -25,7 +25,7 @@ alter table PancakeOrder add foreign key (id_Users) references Users(id);
 
 create table if not exists Pancake
 (
-    id identity ,
+    id int  Identity(1,1) primary Key ,
     createdAt Date not null,
     name varchar (100) not null
     
@@ -41,7 +41,7 @@ alter table PancakeOrder_Pancake add foreign key (id_PancakeOrder) references Pa
 
 create table if not exists Ingredient
 (
-  id int identity(1,1) primary key,
+  id int NOT NULL AUTO_INCREMENT,
      name varchar(100) not null,
    types varchar(100) not null
 );

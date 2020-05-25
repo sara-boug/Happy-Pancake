@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.App.domain.RegistrationForm;
 import com.example.App.domain.User;
 import com.example.App.repository.JdbcUser;
-
+ 
 @RestController
 @RequestMapping(  produces="application/json" )
 @CrossOrigin(origins="*")
@@ -30,8 +30,8 @@ public class UserRegistration {
 	@PostMapping( path="/signup" , consumes= "application/json")
 	@ResponseStatus(HttpStatus.CREATED)
 	public User signupUser(@RequestBody RegistrationForm form) { 
-		User  user = form.toUser(passwordEncoder); 	
-		return  jdbcUser.save(user); 
+		User user = form.toUser(passwordEncoder);  
+ 				return  jdbcUser.save(user); 
 	}
     
  

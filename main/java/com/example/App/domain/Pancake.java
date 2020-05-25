@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
  public class Pancake {
- 	private  long id; 
+ 	private  int id; 
 	private Date createdAt; 
 	@NotNull
 	@Size(min=5 , message="insert longer name please !")
@@ -15,15 +15,16 @@ import javax.validation.constraints.Size;
 	@Size(min=1, message="at least one ingredient !")
  	private ArrayList<Integer> ingredient; 
 	private  int oneIngredient ; 
-	public Pancake(Date createdAt , String name ) { 
+	public Pancake(int id , Date  createdAt, String name) {
+		this.id= id ; 
 		this.createdAt  = createdAt ; 
 		this.name= name; 
-	}
-	
+	 	}
+
 	public long getid() { 
 		return this.id; 
 	}	
-	public void setid(long id ) { 
+	public void setid(int id ) { 
 		this.id= id; 
 	}
 	
