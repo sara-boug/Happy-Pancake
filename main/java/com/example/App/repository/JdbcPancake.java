@@ -3,6 +3,7 @@ package com.example.App.repository;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -12,7 +13,9 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import com.example.App.domain.Ingredient;
 import com.example.App.domain.Pancake;
+import com.example.App.domain.PancakeIngredient;
 import com.example.App.repository_interface.PancakeRepo;
 
 @Repository
@@ -26,8 +29,8 @@ public class JdbcPancake implements PancakeRepo {
 	@Override
 	public Pancake save(Pancake pancake) {
 		long pancakeId = saveToPancake(pancake);
-		for (int i : pancake.getingredient()) {
-			this.saveToPancake_Ingredient(i, pancakeId);
+		for (Ingredient p: pancake.getingredient()) {
+			this.saveToPancake_Ingredient(p.getId(), pancakeId);
 		}
 
 		return pancake;
@@ -46,14 +49,18 @@ public class JdbcPancake implements PancakeRepo {
 		return keyholder.getKey().longValue();
 	}
 
-	private void saveToPancake_Ingredient(int ingredientId, Long pancakeId) {
+	private void saveToPancake_Ingredient(long ingredientId, Long pancakeId) {
 		template.update("insert into Ingredient_Pancake( id_Ingredient, id_Pancake ) " + "values (?,?)", ingredientId,
 				pancakeId);
 
 	}
 	
-	public Iterable<Pancake>  findAll() { 
-		return template.query("select   id , name , createdAt from pancake", this::rowMapper);
+ 	public Iterable<Pancake>  findAll() { 
+		Iterable<Pancake> pancakes= template.query("select   id , name , createdAt from pancake", this::rowMapper);
+		for(Pancake p : pancakes) { 
+			setPancakeIngredient(p); 
+		}
+		return pancakes;
 		
 	}
 	private Pancake rowMapper(ResultSet rs , int rowNum) throws SQLException { 
@@ -64,7 +71,44 @@ public class JdbcPancake implements PancakeRepo {
 				); 
 	}
 	
-	public Pancake findById(int id) { 
-		return template.queryForObject("select   id , name , createdAt from pancake where id = ? ", this::rowMapper,id ); 
+	public Pancake findById(long id) {
+		Pancake p = template.queryForObject("select   id , name , createdAt from pancake where id = ? ",
+				this::rowMapper, id);
+		setPancakeIngredient(p); 
+		return p;
+	} 
+	
+	public void  setPancakeIngredient(Pancake p ) { 
+		Iterable<PancakeIngredient> ids = template.query(
+				"select  id_Pancake, id_Ingredient from Ingredient_Pancake  where  id_Pancake=?",
+				this::mapRowPancakeIngredient, p.getid());
+		ArrayList<Ingredient> ingred = new ArrayList<Ingredient>();
+
+		for (PancakeIngredient i : ids) {
+			ingred.add(findOneIngred(i.getIngredient()));
+		}
+		p.setingredient(ingred);
+		
 	}
+
+	private Ingredient findOneIngred(Long id) {
+		return template.queryForObject("select id , name, types from Ingredient where id=?" , this::mapRowIngredient ,id);
+		 
+	}
+	private Ingredient mapRowIngredient(ResultSet rs , int rowNum) throws SQLException {
+		return  new Ingredient (
+			rs.getInt("id"),
+			rs.getString("name"), 
+			Ingredient.Type.valueOf(rs.getString("types"))); 
+			
+			
+		}; 
+		
+		
+		private PancakeIngredient mapRowPancakeIngredient(ResultSet rs , int rowNum) throws SQLException {
+			return new PancakeIngredient(
+					rs.getLong("id_Pancake") ,
+					rs.getLong("id_Ingredient")
+					); 
+		} 
 }

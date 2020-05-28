@@ -47,8 +47,8 @@ create table if not exists Ingredient
 );
 create table if not exists Ingredient_Pancake
 (
-   id_Ingredient int not null,
-   id_Pancake int not null
+   id_Ingredient long not null,
+   id_Pancake long  not null
 );
 alter table Ingredient_Pancake add foreign key (id_Ingredient) references Ingredient (id);
 alter table Ingredient_Pancake add foreign key (id_Pancake) references Pancake (id);

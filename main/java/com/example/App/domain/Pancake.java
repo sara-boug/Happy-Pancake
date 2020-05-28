@@ -13,9 +13,8 @@ import javax.validation.constraints.Size;
 	private String name; 
 	@NotNull
 	@Size(min=1, message="at least one ingredient !")
- 	private ArrayList<Integer> ingredient; 
-	private  int oneIngredient ; 
-	public Pancake(int id , Date  createdAt, String name) {
+ 	private ArrayList<Ingredient> ingredient; 
+	public Pancake(int id , Date  createdAt, String name ) {
 		this.id= id ; 
 		this.createdAt  = createdAt ; 
 		this.name= name; 
@@ -44,21 +43,14 @@ import javax.validation.constraints.Size;
 	public void setname(String name) { 
 		this.name= name; 
 	}
-	public int getoneIngredient() { 
-		return this.oneIngredient; 
-	}
-	
-	public void setoneIngredient(int  oneIngredient) {
-		this.oneIngredient= oneIngredient;
 
-	}
 	
 
-	 public ArrayList<Integer> getingredient() { 
+	 public ArrayList<Ingredient> getingredient() { 
 		return this.ingredient; 
 	}
 	
-   public void setingredient(ArrayList<Integer> ingredient) { 
+   public void setingredient(ArrayList<Ingredient> ingredient) { 
   		this.ingredient = ingredient; 
  
 	 

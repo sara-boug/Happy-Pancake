@@ -41,6 +41,7 @@ public class DesignPancake {
  		   resource.add( new PancakeDesignAssembler().toModel(p)); 
 		}
 		CollectionModel<PancakeDesignResource> result = new CollectionModel<PancakeDesignResource>(resource); 
+		
 		result.add(
 				linkTo(methodOn(DesignPancake.class).getRecentPancake())
 				.withSelfRel()

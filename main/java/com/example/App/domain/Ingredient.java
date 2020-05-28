@@ -8,7 +8,7 @@ import java.util.List;
  
 
 public class Ingredient {
-	public  int id ; 
+	public  long id ; 
 	public   String name ; 
 	public  Type type; 	
 	public static enum Type { 
@@ -32,6 +32,14 @@ public class Ingredient {
 		return   typePan; 
 		
 	}
- 
-
+	
+	public long getId() { 
+		return this.id; 
+	}
+	
+	public String getname() { 
+		return this.name; 
+	}
+    
+  
 }
