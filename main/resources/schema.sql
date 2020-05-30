@@ -41,9 +41,9 @@ alter table PancakeOrder_Pancake add foreign key (id_PancakeOrder) references Pa
 
 create table if not exists Ingredient
 (
-  id int NOT NULL AUTO_INCREMENT,
-     name varchar(100) not null,
-   types varchar(100) not null
+ id int  Identity(1,1) primary Key ,
+     name   char(100) not null,
+     types char(200) not null
 );
 create table if not exists Ingredient_Pancake
 (

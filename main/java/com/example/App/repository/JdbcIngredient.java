@@ -30,8 +30,8 @@ public class JdbcIngredient implements IngredientRepo{
 
 	@Override
 	public Ingredient save(Ingredient ing) {
-		template.update("insert into Ingredient (id , name , types) values (?,?,?)" , 
-				ing.id, ing.name, ing.type); 
+		template.update("insert into Ingredient ( name , types) values (?,?)" , 
+				  ing.getname(), ing.gettype().toString()); 
  		return ing;
 	}
 	

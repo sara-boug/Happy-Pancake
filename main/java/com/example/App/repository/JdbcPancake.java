@@ -30,7 +30,7 @@ public class JdbcPancake implements PancakeRepo {
 	public Pancake save(Pancake pancake) {
 		long pancakeId = saveToPancake(pancake);
 		for (Ingredient p: pancake.getingredient()) {
-			this.saveToPancake_Ingredient(p.getId(), pancakeId);
+			this.saveToPancake_Ingredient(p.getid(), pancakeId);
 		}
 
 		return pancake;

@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void  configure(HttpSecurity http ) throws Exception  { 
 		 http.cors().and().csrf().disable().authorizeRequests()
-		 .antMatchers("/design", "/design/**", "/order/**", "/ingredient/**")	
+		 .antMatchers("/design", "/design/**", "/order/**")	
 		 .authenticated()	
 		 .antMatchers("/", "/**").anonymous()
 		 .and()

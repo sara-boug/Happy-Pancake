@@ -25,7 +25,7 @@ public class IngredientAssembler
 		 for(Ingredient i : ingred) { 
 			 iteration.add( this.toModel(i)); 
 	    	 result.add(
-				linkTo(methodOn(IngredientApi.class).getById(i.getId()))
+				linkTo(methodOn(IngredientApi.class).getById(i.getid()))
 				.withSelfRel()
 				); 
  
