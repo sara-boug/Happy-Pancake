@@ -2,6 +2,6 @@ package com.example.App.AsyncMessaging;
 
 import com.example.App.domain.Order;
 
-public interface OrderMessagingService {
+public interface SendOrderInterface {
     String sendOrder(Order order); 
   }

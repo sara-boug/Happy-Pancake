@@ -1,6 +1,0 @@
-spring :
-  artemis:
-    host: artemis.PancakeCloudApplication.com 
-    port: 61617
-    user: pancakeUser
-    password: 13saro

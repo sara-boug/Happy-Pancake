@@ -33,8 +33,7 @@ public class Order {
     private int id_users ; 
     public Order (long id , String name, String street , String zipCode , String state , String city , String creditCard , 
     		String cvv , Date placedAt) { 
-    	pancakes= new ArrayList<>(); 
-    	
+     	
     	this.id= id ; 
     	this.name=name; 
     	this.street = street ; 
@@ -44,6 +43,10 @@ public class Order {
     	this.creditCard= creditCard; 
     	this.cvv= cvv; 
     	this.placedAt = placedAt; 
+    }
+    public Order () {
+
+    	
     }
 	public long getid() {
 		return this.id;
@@ -117,8 +120,9 @@ public class Order {
 		this.placedAt= placedAt;
 	}
 	
-	public void setPancake(int pancake) { // in order to make several pancake designs
- 		this.pancakes.add(pancake);            // to the same order
+	public void setPancake(ArrayList<Integer> pancake) { // in order to make several pancake designs
+ 		this.pancakes=  pancake;
+           // to the same order
 	}
 	
 	public ArrayList<Integer> getPancake(){ 

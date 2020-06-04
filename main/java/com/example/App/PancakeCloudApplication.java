@@ -1,21 +1,21 @@
 package com.example.App;
-
-import org.slf4j.Logger;
+ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.jms.annotation.EnableJms;
+
+  import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.example.App.domain.Ingredient;
+ 
 
 @SpringBootApplication
+@EnableJms
 public class PancakeCloudApplication implements WebMvcConfigurer {
     private static Logger log =  LoggerFactory.getLogger(PancakeCloudApplication.class);
-	public static void main(String[] args) {
-		SpringApplication.run(PancakeCloudApplication.class, args);
- 	}	 
 	 @Bean
 	 public CommandLineRunner run()  throws Exception { 	 
 		   return args ->{ 
@@ -28,6 +28,12 @@ public class PancakeCloudApplication implements WebMvcConfigurer {
 
 		   };
 		 }
+	 
+		public static void main(String[] args) {
+			SpringApplication.run(PancakeCloudApplication.class, args);
+
+	 	}	 
+
  }
 	 
 
